@@ -25,7 +25,7 @@ sha256sums=('SKIP'
             '2a493d3973b80b815779643b2c1039f52c05e2e9a65cebd00b2a1da105630cbb')
 
 _kernmajor="$(uname -r | cut -d'.' -f-2)"
-_distro="$(uname -r | sed -e 's/[^A-Z]*//')"
+_distro="$(uname -r | rev | cut -d- -f1 | rev)"
 _kernver="$(</usr/lib/modules/extramodules-"$_kernmajor"-"$_distro"/version)"
 
 pkgver() {
